@@ -1,12 +1,6 @@
 {
   "caballeros": [
     {
-      "nombre": "Seiya",
-      "constelacion": "Pegaso",
-      "armadura": "oro",
-      "id": 1
-    },
-    {
       "nombre": "Ikki",
       "constelacion": "Pegaso",
       "armadura": "lorem"
@@ -22,28 +16,10 @@
       "armadura": "lorem"
     },
     {
-      "nombre": "doko",
-      "constelacion": "libr=a",
-      "armadura": "dorada",
-      "id": 2
-    },
-    {
       "nombre": "Shiriu",
       "constelacion": "Dragon",
       "armadura": "Bronce",
       "id": 3
-    },
-    {
-      "nombre": "Seiya",
-      "constelacion": "Pegaso",
-      "armadura": "lorem",
-      "id": 4
-    },
-    {
-      "nombre": "mu",
-      "constelacion": "aries",
-      "armadura": "oro",
-      "id": 5
     }
   ]
 }
