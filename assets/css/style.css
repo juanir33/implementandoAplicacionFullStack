@@ -1,0 +1,80 @@
+body{
+    font-family: 'Righteous', cursive;  
+    height: 100%;
+    background: url(/assets/css/imgs/anime-art-fantasy-fight-wallpaper-preview.jpg) no-repeat center center fixed;
+    background-size: 100% 100%;
+}
+tr {
+    border-color: rgba(127, 38, 71);
+}
+
+button:focus {
+    outline: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+h2{
+    color: rgb(235, 133, 16);
+}    
+
+.efectoTitulo{
+    display: flex;
+    position:relative;
+    font-size: 5rem;
+    text-shadow: 5px 2px #60d6d09f;
+}
+
+.tableOpacity{
+    color: rgba(212, 141, 60, 0.733);
+    border-radius: 0.5%;
+    background-color: rgba(0, 0, 0, 0.541);
+}
+.tablaColorText:hover{
+    color: rgb(136, 238, 221);
+}
+.paddingTr{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+.btnNuevo{
+    color: rgb(224, 130, 22);
+    background: rgba(0, 0, 0, 0);
+    border-style: solid;
+    border-color: rgb(207, 148, 80);
+    font-size: 1.5rem;
+}
+.btnNuevo:hover{
+    background: rgba(0, 65, 103, 0);
+    color: rgb(136, 238, 221);
+    border-color: rgb(179, 116, 45);
+    opacity: 100%;
+    position: relative;
+    transition: 250ms;
+    transform: rotate(6deg) scale(1.5);
+}
+
+@media only all and (max-width: 992px) {
+    .trTablaMedium{
+        position: absolute;
+        clip: rect(1px, 1px, 1px, 1px);
+    }
+    .btnOpciones{
+        display: flex;
+        flex-direction: row;
+    }
+    .titulo{
+        font-size: 2rem;
+    }
+    .btnNewSeiya{
+        font-size: 1rem;
+    }
+  }
+
+  @media only all and (max-width: 574px) {
+    .trTablaSmall {
+        position: absolute;
+        clip: rect(1px, 1px, 1px, 1px);
+    }
+}

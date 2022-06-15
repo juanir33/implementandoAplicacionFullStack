@@ -1,0 +1,27 @@
+{   
+    
+    "caballeros":[{
+    "id": 1,
+    "nombre": "Seiya",
+    "constelacion": "Pegaso",
+    "historia": "lorem",
+    "imagen": "url"
+    },
+    {
+    
+        "nombre": "Ikki",
+        "Constelacion": "Pegaso",
+        "Historia": "lorem"
+        },
+        {
+    
+            "nombre": "Shun",
+            "Constelacion": "Pegaso",
+            "Historia": "lorem"
+            },{
+    
+                "nombre": "Shiriu",
+                "Constelacion": "Pegaso",
+                "Historia": "lorem"
+                }]
+}
