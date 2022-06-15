@@ -1,14 +1,15 @@
 {
   "caballeros": [
     {
-      "nombre": "Ikki",
+      "nombre": "Seiya ",
       "constelacion": "Pegaso",
-      "armadura": "lorem",
-      "id": 1
+      "armadura": "Bronce",
+      "id": 1,
+      "isAlive": true
     },
     {
-      "nombre": "Shun",
-      "constelacion": "Andromeda",
+      "nombre": "Seiya ",
+      "constelacion": "Pegaso",
       "armadura": "Bronce",
       "id": 2
     },
@@ -16,7 +17,14 @@
       "nombre": "Seiya ",
       "constelacion": "Pegaso",
       "armadura": "Bronce",
-      "id": 3
+      "id": 3,
+      "isAlive": true
+    },
+    {
+      "nombre": "sas",
+      "constelacion": "yyyy",
+      "armadura": "Bronce",
+      "id": 4
     }
   ]
 }

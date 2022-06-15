@@ -15,17 +15,28 @@ const getAll = async () => {
 
       row.innerHTML = `           
             <td class="col-sm-2 col-md-2 col-lg-1">${seiya.nombre}</td>
-            <td class="col-sm-3 col-md-3 col-lg-1">${seiya.constelacion}</td>
-            <td class="col-sm-5 col-md-5 col-lg-3">${seiya.armadura}</td>
-            
+            <td class="col-sm-2 col-md-2 col-lg-1">${seiya.constelacion}</td>
+            <td class="col-sm-2 col-md-2 col-lg-1">${seiya.armadura}</td>
+            <td class="col-sm-2 col-md-2 col-lg-1"><div >
+            <button onclick="isAlive(${seiya.id})" id="isAliveBtn${
+        seiya.id
+      }" class="${
+        seiya.isAlive ? "btn btn-success" : "btn btn-danger"
+      }"></button>
+            </div></td>
             <td class="col-sm-2 col-md-2 col-lg-1">
             <section class="d-flex  justify-content-center align-items-center btnOpciones">
             <div class="opacityIMG_Button imgHover">
-            <button onclick="eliminarSeiya(${seiya.id})" class="btn btn-danger m-1" title="Eliminar Caballero"><i class="fas fa-trash-alt"></i></button>
+            <button onclick="eliminarSeiya(${
+              seiya.id
+            })" class="btn btn-danger m-1" title="Eliminar Caballero"><i class="fas fa-trash-alt"></i></button>
             </div>
             <div class="opacityIMG_Button imgHover">
-            <button onclick="editarDatosSeiya(${seiya.id})" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#seiyaModal" title="Editar Caballero"><i class="fas fa-list-alt"></i></button>
+            <button onclick="editarDatosSeiya(${
+              seiya.id
+            })" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#seiyaModal" title="Editar Caballero"><i class="fas fa-list-alt"></i></button>
             </div>
+            
             
             </section>
             
@@ -44,7 +55,7 @@ const getAll = async () => {
  */
 const agregarCaballero = async (event) => {
   event.preventDefault();
-  selector(".modal-title").textContent="Nuevo Caballero";
+  selector(".modal-title").textContent = "Nuevo Caballero";
   let name = selector("#seiyaName").value;
   let constel = selector("#seiyaConstelacion").value;
   let armadura = selector("#seiyaArmadura").value;
@@ -70,7 +81,7 @@ const agregarCaballero = async (event) => {
  */
 const editarDatosSeiya = async (id) => {
   try {
-    selector('.modal-title').textContent = "Editar Caballero";
+    selector(".modal-title").textContent = "Editar Caballero";
     let response = await axiosClient.get("/caballeros");
     let seiyas = await response.data;
     seiyas.forEach((seiya) => {
@@ -99,28 +110,87 @@ const eliminarSeiya = (id) => {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Santo eliminado',
-            showConfirmButton: true,
-            
-            }).then(async (results) => {if (results.isConfirmed)await axiosClient.delete(`/caballeros/${id}`);})
-            
-        
-       }})}
-      
-    
-        
-  catch (error) {
+          position: "center",
+          icon: "success",
+          title: "Santo eliminado",
+          showConfirmButton: true,
+        }).then(async (results) => {
+          if (results.isConfirmed)
+            await axiosClient.delete(`/caballeros/${id}`);
+        });
+      }
+    });
+  } catch (error) {
     console.log(error);
   }
 };
 
 function limpiarCamposModal() {
-    selector('.modal-title').textContent= "Nuevo Caballero"
+  selector(".modal-title").textContent = "Nuevo Caballero";
   selector("#seiyaName").value = "";
   selector("#seiyaConstelacion").value = "";
   selector("#seiyaArmadura").value = "";
 }
 
+const isAlive = async (id) => {
+  const { data } = await axiosClient.get(`/caballeros`);
+
+  data.forEach((seiya) => {
+    if (seiya.id === id) {
+      if (!seiya.isAlive) {
+        Swal.fire({
+          title: "¿Cambiar estado?",
+          showDenyButton: false,
+          showCancelButton: true,
+          confirmButtonText: "Guardar",
+        }).then(async (result) => {
+          if (result.isConfirmed) {
+            let body = {
+              nombre: seiya.nombre,
+              constelacion: seiya.constelacion,
+              armadura: seiya.armadura,
+              id: seiya.id,
+              isAlive: true,
+            };
+            await axiosClient.put(`/caballeros/${seiya.id}`, body);
+
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Estado actualizado",
+              showConfirmButton: false,
+              timer: 1100,
+            });
+          }
+        });
+      } else {
+        Swal.fire({
+          title: "¿Cambiar estado?",
+          showDenyButton: false,
+          showCancelButton: true,
+          confirmButtonText: "Guardar",
+        }).then(async (result) => {
+          if (result.isConfirmed) {
+            let body = {
+              nombre: seiya.nombre,
+              constelacion: seiya.constelacion,
+              armadura: seiya.armadura,
+              id: seiya.id,
+              isAlive: false,
+            };
+            await axiosClient.put(`/caballeros/${seiya.id}`, body);
+
+            Swal.fire({
+              position: "center",
+              icon: "warning",
+              title: "Dead",
+              showConfirmButton: false,
+              timer: 1100,
+            });
+          }
+        });
+      }
+    }
+  });
+};
 document.addEventListener("DOMContentLoaded", getAll);
