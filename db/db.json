@@ -8,23 +8,25 @@
       "isAlive": true
     },
     {
-      "nombre": "Seiya ",
-      "constelacion": "Pegaso",
-      "armadura": "Bronce",
-      "id": 2
-    },
-    {
-      "nombre": "Seiya ",
-      "constelacion": "Pegaso",
+      "nombre": "Ikki",
+      "constelacion": "Fenix",
       "armadura": "Bronce",
       "id": 3,
       "isAlive": true
     },
     {
-      "nombre": "sas",
-      "constelacion": "yyyy",
+      "nombre": "mu",
+      "constelacion": "Aries",
+      "armadura": "Oro",
+      "id": 4,
+      "isAlive": true
+    },
+    {
+      "nombre": "Shun ",
+      "constelacion": "Andromeda",
       "armadura": "Bronce",
-      "id": 4
+      "id": 5,
+      "isAlive": true
     }
   ]
 }
