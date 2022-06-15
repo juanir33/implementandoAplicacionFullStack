@@ -2,7 +2,9 @@ const axiosClient = axios.create({ baseURL: "http://localhost:3000" });
 const selector = (tag) => {
   return document.querySelector(tag);
 };
-
+/**
+ * Metodo para traer todos los campos de la base de datos y listarlos en una tabla.
+ */
 const getAll = async () => {
   try {
     const response = await axiosClient.get("/caballeros");
@@ -36,9 +38,13 @@ const getAll = async () => {
     console.log(err);
   }
 };
-
+/**
+ * Metodo post y put,  si se tiene el parametro id en el input oculto del formulario, realiza una edicion de personaje; de lo contrario genera uno nuevo
+ * @param {*} event  evento para evitar la recarga de la pagina en el submit del formulario
+ */
 const agregarCaballero = async (event) => {
   event.preventDefault();
+  selector(".modal-title").textContent="Nuevo Caballero";
   let name = selector("#seiyaName").value;
   let constel = selector("#seiyaConstelacion").value;
   let armadura = selector("#seiyaArmadura").value;
@@ -58,9 +64,13 @@ const agregarCaballero = async (event) => {
     console.log(error);
   }
 };
-
+/**
+ * Metodo para completar los campos del formulario modal para poder editar un caballero.
+ * @param {*} id id del caballero
+ */
 const editarDatosSeiya = async (id) => {
   try {
+    selector('.modal-title').textContent = "Editar Caballero";
     let response = await axiosClient.get("/caballeros");
     let seiyas = await response.data;
     seiyas.forEach((seiya) => {
@@ -75,7 +85,10 @@ const editarDatosSeiya = async (id) => {
     console.log(error);
   }
 };
-
+/**
+ * Metodo para poder eliminar un caballero de la base de datos.
+ * @param {*} id id del caballero
+ */
 const eliminarSeiya = (id) => {
   try {
     Swal.fire({
@@ -104,6 +117,7 @@ const eliminarSeiya = (id) => {
 };
 
 function limpiarCamposModal() {
+    selector('.modal-title').textContent= "Nuevo Caballero"
   selector("#seiyaName").value = "";
   selector("#seiyaConstelacion").value = "";
   selector("#seiyaArmadura").value = "";

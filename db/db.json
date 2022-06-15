@@ -3,21 +3,18 @@
     {
       "nombre": "Ikki",
       "constelacion": "Pegaso",
-      "armadura": "lorem"
+      "armadura": "lorem",
+      "id": 1
     },
     {
       "nombre": "Shun",
-      "constelacion": "Pegaso",
-      "armadura": "lorem"
+      "constelacion": "Andromeda",
+      "armadura": "Bronce",
+      "id": 2
     },
     {
-      "nombre": "Shiriu",
+      "nombre": "Seiya ",
       "constelacion": "Pegaso",
-      "armadura": "lorem"
-    },
-    {
-      "nombre": "Shiriu",
-      "constelacion": "Dragon",
       "armadura": "Bronce",
       "id": 3
     }
